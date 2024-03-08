@@ -16,19 +16,19 @@ class TaskType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('title', TextType::class, [
-                'attr' => ['class' => 'form'],
-                'required' => true
-            ])
+            ->add('title', TextType::class)
             ->add('content', TextareaType::class)
-            ->add('expiryDate', DateType::class)
+            ->add('expiryDate', DateType::class, [
+                'widget' => 'single_text'
+            ])
+            ->add('statut')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            // Configure your form options here
+            'data_class' => Task::class,
         ]);
     }
 }

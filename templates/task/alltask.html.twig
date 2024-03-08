@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une tâche{% endblock %}
+
+{% block body %}
+{% for task in tasks %}
+    <p>{{ task.title }}</p>
+    <p>{{ task.content }}</p>
+    <p>{{ task.expiryDate | date('d/m/Y') }}</p>
+{% endfor %}
+{% endblock %}
